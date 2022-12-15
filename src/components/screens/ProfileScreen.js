@@ -8,14 +8,19 @@ import {Loader} from '../ui/Loader';
 import {useProfileUpdate} from '../../hooks/useProfileUpdate';
 import {HeaderTitle} from '../ui/HeaderTitle';
 import {useProfile} from '../../hooks/useProfile';
+import {useSupport} from '../../hooks/useSupport';
 
 export const ProfileScreen = () => {
   const {user} = useAuth();
 
   const {logout} = useAuth();
   const {isLoading, name, setName} = useProfile();
+  const {sendMessage} = useSupport();
   const {isLoadingUpdate, updateName, isSuccesfull} = useProfileUpdate();
-
+  const handler = () => {
+    updateName(name);
+    sendMessage('Your profile was updated', true);
+  };
   return (
     <View className="justify-center items-center w-10/12 mx-auto">
       {isSuccesfull && (
@@ -34,7 +39,7 @@ export const ProfileScreen = () => {
             value={name}
             // onBlur={getName}
           />
-          <MyButton onPress={() => updateName(name)} title={'Update'} />
+          <MyButton onPress={handler} title={'Update'} />
           <MyButton colors="silver" onPress={logout} title={'logout'} />
         </>
       )}

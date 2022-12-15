@@ -66,6 +66,7 @@ export const PaymentsModal = ({
       setSelectAmountTransition(sum);
     }
   };
+
   useEffect(() => {
     transition();
     accessHandler();
