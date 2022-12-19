@@ -1,9 +1,6 @@
-import {View, Text} from 'react-native';
-import firestore, {
-  FirebaseFirestoreTypes,
-} from '@react-native-firebase/firestore';
+import firestore from '@react-native-firebase/firestore';
 // import {firebase} from '@react-native-firebase/firestore';
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useAuth} from './useAuth';
 
 export const useSupport = () => {
@@ -13,7 +10,9 @@ export const useSupport = () => {
   const [isLoading2, setIsLoading2] = useState([]);
 
   const sendMessage = (text, bool) => {
-    if (text.length < 1) return;
+    if (text.length < 1) {
+      return;
+    }
     setIsLoading2(true);
     firestore()
       .collection('support')
@@ -25,7 +24,6 @@ export const useSupport = () => {
       })
       .finally(() => setIsLoading2(false));
   };
-  //   console.log(auth.user.uid, 'uidssssssssssss');
   const getMessage = () => {
     setIsLoading(true);
     firestore()

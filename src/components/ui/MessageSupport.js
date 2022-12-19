@@ -1,9 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import {useAuth} from '../../hooks/useAuth';
 
 export const MessageSupport = ({item}) => {
-  const {user} = useAuth();
   const time = new Date(item.createdAt * 1000).toLocaleString(undefined, {
     timeZone: 'UTC',
   });

@@ -1,10 +1,5 @@
-import {View, Text, Alert} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {MyButton} from '../ui/MyButton';
-import {useAuth} from '../../hooks/useAuth';
-// import {addDoc, collection, doc, setDoc, getDoc} from 'firebase/firestore';
-// import {db, setDocumentNow} from '../../utils/firebase';
-import auth from '@react-native-firebase/auth';
+import {View, Text} from 'react-native';
+import React from 'react';
 
 export const ServicesScreen = () => {
   return (

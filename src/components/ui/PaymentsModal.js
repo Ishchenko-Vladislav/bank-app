@@ -47,8 +47,9 @@ export const PaymentsModal = ({
     console.log(selectAmountTransition);
   };
   const transition = () => {
-    if (currentCardFrom?.currency == currentCardTo?.currency)
+    if (currentCardFrom?.currency == currentCardTo?.currency) {
       setSelectAmountTransition(selectAmount);
+    }
     if (
       currentCardFrom?.currency == 'hryvnia' &&
       currentCardTo?.currency == 'dollar'

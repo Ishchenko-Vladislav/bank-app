@@ -1,5 +1,5 @@
-import {View, Text, Alert} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {Alert} from 'react-native';
+import {useEffect, useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import {useAuth} from './useAuth';
 

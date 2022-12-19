@@ -6,7 +6,6 @@ import {useAuth} from './useAuth';
 export const useProfile = () => {
   const {user} = useAuth();
   const [name, setName] = useState('');
-  const [profile, setProfile] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -15,7 +14,6 @@ export const useProfile = () => {
         .collection('users')
         .doc(user.uid)
         .onSnapshot(documentSnapshot => {
-          setProfile(documentSnapshot.data());
           setName(documentSnapshot.data().displayName);
         });
     } catch (error) {

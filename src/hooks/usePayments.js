@@ -1,6 +1,6 @@
-import {View, Text, Alert} from 'react-native';
+import {Alert} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
-import React, {useState} from 'react';
+import {useState} from 'react';
 
 export const usePayments = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,9 +14,10 @@ export const usePayments = () => {
           return querySnapshot.docs;
         });
       const bal = await postReference[0].data().balance;
-      if (bal < amount) return;
+      if (bal < amount) {
+        return;
+      }
       postReference[0].ref.update({balance: bal - amount});
-      //   console.log(postReference[0].ref.update({balance: bal + 1}));
     } catch (error) {
       return error;
     }
@@ -31,7 +32,7 @@ export const usePayments = () => {
         return querySnapshot.docs;
       });
     const bal = await postReference[0].data().balance;
-    console.log(postReference[0].ref.update({balance: +bal + +amount}));
+    postReference[0].ref.update({balance: +bal + +amount});
   };
   const transferMoney = async (from, to, amountFrom, amountTo) => {
     setIsLoading(true);

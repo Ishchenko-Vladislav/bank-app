@@ -29,7 +29,7 @@ export const BankCard = ({item}) => {
       <Text className={`absolute mt-2 ml-5 text-xl ${textColor}`}>
         Card {item.type}
       </Text>
-      <View className={`absolute left-5 top-12 flex-row items-end`}>
+      <View className={'absolute left-5 top-12 flex-row items-end'}>
         <Text className={`text-sm ${textColor}`}>
           {Intl.NumberFormat(undefined, {
             currency,
@@ -37,7 +37,7 @@ export const BankCard = ({item}) => {
             currencyDisplay: 'code',
           }).format(item.balance)}
         </Text>
-        <Text className={`${textColor} ml-2`}></Text>
+        <Text className={`${textColor} ml-2`} />
       </View>
     </View>
   );

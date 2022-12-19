@@ -1,4 +1,4 @@
-import {View, Text, Alert} from 'react-native';
+import {View, Text} from 'react-native';
 import React from 'react';
 import {MyButton} from '../ui/MyButton';
 import {useAuth} from '../../hooks/useAuth';
@@ -11,8 +11,6 @@ import {useProfile} from '../../hooks/useProfile';
 import {useSupport} from '../../hooks/useSupport';
 
 export const ProfileScreen = () => {
-  const {user} = useAuth();
-
   const {logout} = useAuth();
   const {isLoading, name, setName} = useProfile();
   const {sendMessage} = useSupport();

@@ -1,12 +1,4 @@
-import {
-  View,
-  Text,
-  Alert,
-  ScrollView,
-  FlatList,
-  Pressable,
-  RefreshControl,
-} from 'react-native';
+import {View, Text, ScrollView, FlatList, Pressable} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useAccounts} from '../../hooks/useAccounts';
 import {Avatar} from '../ui/Avatar';
@@ -24,7 +16,6 @@ export const PaymentsScreen = () => {
   const [accs, setAccs] = useState([]);
   const {transferMoney, isLoading: loading} = usePayments();
   const [isActiveModal, setIsActiveModal] = useState(false);
-  const {user} = useAuth();
   const {cardList, isLoading: load, getCard: falseLoadCard} = useApplyCard();
   const [currentCardFrom, setCurrentCardFrom] = useState(null);
   const [currentCardTo, setCurrentCardTo] = useState({});
@@ -38,25 +29,13 @@ export const PaymentsScreen = () => {
       .then(querySnapshot => {
         setAccs(querySnapshot.docs);
       });
-
-    // console.log(acc);
   };
   const selectCurrentCard = id => {
-    // console.log(id);
     setCurrentCardFrom(id);
-    // transfer(id);
   };
   useEffect(() => {
     getCard();
     falseLoadCard();
-    // firestore()
-    //   .collection('accounts')
-    //   .where('id', '==', user.uid)
-    //   .get()
-    //   .then(querySnapshot => {
-    //     // setCardList(querySnapshot.docs);
-    //     // console.log(querySnapshot.docs[0]);
-    //   });
   }, [currentId, loading]);
 
   return (
@@ -83,8 +62,6 @@ export const PaymentsScreen = () => {
             <Text className="text-lg">transfer from card</Text>
           </View>
           <ScrollView
-            // onContentSizeChange={200}
-
             showsHorizontalScrollIndicator={false}
             pagingEnabled
             horizontal
@@ -92,9 +69,6 @@ export const PaymentsScreen = () => {
             sna>
             {cardList.map(item => (
               <Pressable className="w-[360]">
-                {/* <View className="w-5 h-5 border-t-slate-900">
-                <Text>dww</Text>
-              </View> */}
                 <CardListPaymentsFrom
                   currentCardFrom={currentCardFrom}
                   setCurrentCardFrom={setCurrentCardFrom}
@@ -127,15 +101,7 @@ export const PaymentsScreen = () => {
             ))
           )}
         </ScrollView>
-        {/* <ScrollView className="" showsVerticalScrollIndicator={false}>
-        {accs.length >= 1 ? (
-          accs?.map(item => <CardListPayments item={item.data()} />)
-        ) : (
-          <Text className="text-center font-bold mt-2">
-            He don't have a card
-          </Text>
-        )}
-      </ScrollView> */}
+
         <View className="mt-2">
           {loading ? (
             <Loader />
