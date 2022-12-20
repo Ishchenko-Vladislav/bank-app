@@ -8,8 +8,7 @@ import {HomeScreen} from '../screens/HomeScreen';
 import {AuthScreen} from '../screens/AuthScreen';
 import {useAuth} from '../../hooks/useAuth';
 import {NavBar} from '../ui/navbar/NavBar';
-import {ServicesScreen} from '../screens/ServicesScreen';
-import {MoreScreen} from '../screens/MoreScreen';
+
 import {PaymentsScreen} from '../screens/PaymentsScreen';
 import {SupportScreen} from '../screens/SupportScreen';
 import {ProfileScreen} from '../screens/ProfileScreen';
@@ -45,10 +44,10 @@ export const Navigation = () => {
                 name="Details"
                 component={DetailsCardScreen}
               />
-              <Stack.Screen name="Services" component={ServicesScreen} />
+
               <Stack.Screen name="Support" component={SupportScreen} />
               <Stack.Screen name="Payments" component={PaymentsScreen} />
-              <Stack.Screen name="More" component={MoreScreen} />
+
               <Stack.Screen name="Profile" component={ProfileScreen} />
             </>
           ) : (

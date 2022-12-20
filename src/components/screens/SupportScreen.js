@@ -4,6 +4,7 @@ import {Field} from './../ui/Field';
 import {MessageSupport} from '../ui/MessageSupport';
 import {useSupport} from '../../hooks/useSupport';
 import {Loader} from '../ui/Loader';
+import {MyButton} from '../ui/MyButton';
 
 export const SupportScreen = () => {
   const [text, setText] = useState('');
@@ -39,13 +40,18 @@ export const SupportScreen = () => {
       ) : (
         <Text>have not a message</Text>
       )}
-      <View className="absolute bottom-4 w-[90%] h-14 px-6 flex-row items-center ">
+      <View className="absolute bottom-4 w-[86%] px-6 flex-row items-center">
         <Field
           onChangeText={setText}
           value={text}
           placeholder={'Enter you message'}
         />
-        <Button onPress={textHandler} title="Send" />
+        {/* <View className="w-[50px] h-full">
+          <MyButton onPress={textHandler} title="Send" />
+        </View> */}
+        <View className="mt-[11px] py-4 px-3 mx-1 justify-center items-center bg-teal-700 rounded-lg">
+          <Text className="text-white">Send</Text>
+        </View>
       </View>
     </View>
   );

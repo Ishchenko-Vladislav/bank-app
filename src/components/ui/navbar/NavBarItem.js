@@ -4,16 +4,19 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 
 export const NavBarItem = ({title, imageName, navigate, currentRoute}) => {
   return (
-    <Pressable onPress={() => navigate(title)} className="items-center">
+    <Pressable
+      onPress={() => navigate(title)}
+      className="items-center h-full w-[25%] justify-center">
       <FontAwesomeIcon
+        secondaryColor="red"
+        // color="blue"
+        // style="--fa-animation-duration: 0.5s;"
+        mask="circle-3"
+        // transform="shrink-6 left-4"
         color={currentRoute == title ? 'blue' : 'black'}
         size={20}
         icon={imageName}
       />
-      <Text
-        className={currentRoute == title ? 'text-blue-500' : 'text-gray-400'}>
-        {title}
-      </Text>
     </Pressable>
   );
 };
